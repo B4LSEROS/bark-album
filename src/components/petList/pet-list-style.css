@@ -1,0 +1,19 @@
+.petList-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+
+    min-width: 100vw;
+    height: auto;
+    box-sizing: border-box;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.sub-pet-container {
+    height: auto;
+    width: 45%; 
+
+}
