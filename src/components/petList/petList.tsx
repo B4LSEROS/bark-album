@@ -4,63 +4,61 @@ import { Pet } from '../../hooks/useGetPets';
 import './pet-list-style.css';
 
 const PetCard = styled.div`
-  background-color: #f2f2f2; // Fondo gris claro
+background-color: #f2f2f2; // Light gray background
+border-radius: 10px;
+padding: 10px;
+margin: 10px 0;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease;
+position: relative; // For absolute positioning of the checkbox
+
+img {
+  max-width: 100%;
+  height: 300px;
   border-radius: 10px;
-  padding: 10px;
-  margin: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  position: relative; // Para posicionar absolutamente el checkbox
+}
 
-  img {
-    max-width: 100%;
-    height: 300px;
-    border-radius: 10px;
+h3 {
+  margin: 10px 0; // Space for the title
+}
+
+p, small, input[type="checkbox"] {
+  display: none; // Hide by default
+}
+
+input[type="checkbox"] {
+  display: none; // Hide checkbox by default
+  appearance: none; // Remove default browser styling
+  background-color: #008CFF; // Background color
+  width: 30px; // Width of the checkbox
+  height: 30px; // Height of the checkbox
+  border-radius: 5px; // Rounded borders
+  position: relative; // For the check icon
+
+  &:checked::after {
+    content: '✔'; // Check icon
+    color: white; // Color of the check
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px; // Size of the check icon
   }
+}
 
-  h3 {
-    margin: 10px 0; // Espacio para el título
-  }
 
-  p, small, input[type="checkbox"] {
-    display: none; // Ocultar por defecto
+&:hover {
+  transform: scale(1.05); // Zoom effect on hover
+
+  p, small {
+    display: block; // Show on hover
   }
 
   input[type="checkbox"] {
-    display: none; // Ocultar el checkbox por defecto
-    appearance: none; // Quitar el estilo por defecto del navegador
-    background-color: #008CFF; // Color de fondo
-    width: 30px; // Ancho del checkbox
-    height: 30px; // Altura del checkbox
-    border-radius: 5px; // Bordes redondeados
-    position: relative; // Para el icono de check
-
-    &:checked::after {
-      content: '✔'; // Icono de check
-      color: white; // Color del check
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 16px; // Tamaño del icono de check
-    }
+    display: block; // Show the checkbox on hover
   }
-
-
-  &:hover {
-    transform: scale(1.05); // Efecto de zoom al hacer hover
-
-    p, small {
-      display: block; // Mostrar al hacer hover
-    }
-
-    input[type="checkbox"] {
-      display: block; // Mostrar el checkbox al hacer hover
-    }
-  }
+}
 `;
-
-
 
 interface PetListProps {
   pets: Pet[];
